@@ -2,8 +2,7 @@ body {
   display: flex;
   justify-content: space-around;
   margin-top: 10%;
-  box-sizing: border-box;
-  position: relative; }
+  box-sizing: border-box; }
 
 .stan {
   max-height: 450px; }
@@ -174,10 +173,10 @@ body {
   border-radius: 50%;
   background: transparent;
   border: 1.6em solid #bc6d4f;
-  top: 3%;
+  top: 5%;
   left: -6%;
   position: absolute;
-  border-radius: 95% 0 0;
+  border-radius: 106% 0 0;
   transform: rotate(-3deg); }
 
 .handRight {
@@ -210,6 +209,52 @@ body {
   .hand2:after {
     left: -13%; }
 
+.hand-animation {
+  animation: wag 5s linear infinite; }
+@keyframes wag {
+  10%, 30% {
+    transform: rotate(0deg);
+    width: 36px;
+    height: 48px;
+    border-radius: 50%;
+    background: #e23940;
+    top: 47%;
+    left: -8%;
+    position: absolute; }
+  20%, 40% {
+    transform: rotate(-30deg); }
+  50% {
+    transform: rotate(0deg);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #e23940;
+    top: 57%;
+    left: -8%;
+    position: absolute; } }
+  .hand-animation:after {
+    animation: wag1 5s linear infinite; }
+@keyframes wag1 {
+  10%, 30% {
+    transform: rotate(-25deg);
+    width: 21px;
+    height: 11px;
+    border-radius: 50%;
+    background: #e23940;
+    top: 50%;
+    left: 57%;
+    position: absolute; }
+  20%, 40% {
+    transform: rotate(-25deg); }
+  50% {
+    transform: rotate(-25deg);
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #e23940;
+    top: 5%;
+    left: 57%;
+    position: absolute; } }
 .collar1 {
   width: 66px;
   height: 16px;
@@ -406,13 +451,13 @@ body {
   .hood-hair::after {
     content: '';
     top: 93%;
-    left: 12%;
+    left: 14%;
     position: absolute;
     width: 0;
     height: 0;
     background: transparent;
     border-left: 34px solid transparent;
-    border-right: 35px solid transparent;
+    border-right: 32px solid transparent;
     border-top: 36px solid #ffdcb4; }
 
 .hood-line {
@@ -462,16 +507,24 @@ body {
 /*kartman*/
 .kartman .face {
   width: 260px;
-  height: 212px; }
+  height: 212px;
+  top: 6%;
+  left: 3%; }
 .kartman .eyes {
   top: 37%; }
 .kartman .coat {
   width: 317px;
-  background: #e23940; }
+  background: #e23940;
+  border-radius: 50% 50% 34% 22%;
+  height: 162px; }
+  .kartman .coat:before {
+    display: none; }
+  .kartman .coat:after {
+    display: none; }
 
 .kartman-body {
-  top: -8%;
-  left: -7%;
+  top: -15%;
+  left: -8px;
   position: absolute;
   position: relative; }
 
@@ -479,11 +532,11 @@ body {
   border-top: 39px solid #7d351f;
   border-left: 13px solid transparent;
   border-right: 11px solid transparent;
-  width: 245px;
+  width: 258px;
   height: 0;
   background: transparent;
-  top: 97%;
-  left: 8%;
+  top: 87%;
+  left: 3%;
   position: absolute;
   z-index: -1; }
 
@@ -493,7 +546,7 @@ body {
   border-radius: 50%;
   background: black;
   border-radius: 50% 50% 0 0/100% 100% 0 0;
-  top: 60%;
+  top: -6px;
   left: -6%;
   position: absolute; }
 
@@ -595,5 +648,148 @@ body {
   left: 30%;
   position: absolute;
   border-radius: 76% 0 73% 20%; }
+
+.kartman-double-chin {
+  width: 47px;
+  height: 15px;
+  background: transparent;
+  top: 84%;
+  left: 42%;
+  position: absolute;
+  border-bottom: 2px solid black;
+  border-radius: 30%; }
+
+.kartman-double-chin-big {
+  top: 85%;
+  left: 40%;
+  position: absolute;
+  width: 63px;
+  height: 23px;
+  background: transparent;
+  border-bottom: 2px solid black;
+  border-radius: 0 48% 50% 0;
+  transform: rotate(3deg); }
+  .kartman-double-chin-big::before {
+    content: '';
+    top: -33%;
+    left: -127%;
+    position: absolute;
+    width: 104px;
+    height: 22px;
+    background: transparent;
+    border-bottom: 2px solid black;
+    border-radius: 44% 84%;
+    transform: rotate(16deg); }
+  .kartman-double-chin-big::after {
+    content: '';
+    top: -188%;
+    left: 54%;
+    position: absolute;
+    width: 88px;
+    height: 44px;
+    background: transparent;
+    border-bottom: 2px solid black;
+    border-radius: 0 0 10% 12%;
+    transform: rotate(-33deg); }
+
+.kartman-mouth-position {
+  top: 85%;
+  transform: rotate(13deg); }
+
+.kartman-hand1 {
+  width: 63px;
+  height: 44px;
+  background: #ffe01b;
+  top: 36%;
+  left: -8%;
+  position: absolute;
+  border-radius: 54% 162% 33% 89%; }
+
+.kartman-hand2 {
+  width: 47px;
+  height: 52px;
+  background: #ffe01b;
+  top: 30%;
+  left: 88%;
+  position: absolute;
+  border-radius: 28% 12% 54% 50%;
+  transform: rotate(-8deg); }
+  .kartman-hand2::after {
+    content: '';
+    top: 22%;
+    left: -38%;
+    position: absolute;
+    width: 42px;
+    height: 28px;
+    background: #ffe01b;
+    border-radius: 46% 0 0 79%;
+    transform: rotate(-46deg); }
+
+.kartman-handLeft {
+  width: 35px;
+  height: 74px;
+  background: #e23940;
+  top: 4%;
+  left: -1%;
+  position: absolute;
+  border-radius: 50% 0% 0;
+  transform: rotate(36deg); }
+
+.kartman-handRight {
+  left: 83%;
+  transform: rotate(-39deg);
+  border-radius: 0 66%;
+  height: 64px; }
+
+.kartman-line {
+  width: 23px;
+  height: 50px;
+  background: transparent;
+  top: 58%;
+  left: 43%;
+  position: absolute;
+  border-right: 2px solid black;
+  border-radius: 30%; }
+  .kartman-line::before {
+    content: '';
+    top: -32%;
+    left: 79%;
+    position: absolute;
+    width: 10px;
+    height: 21px;
+    background: transparent;
+    border-left: 2px solid black;
+    border-radius: 40%; }
+  .kartman-line::after {
+    content: '';
+    top: 86%;
+    left: 71%;
+    position: absolute;
+    width: 9px;
+    height: 27px;
+    background: transparent;
+    border-left: 2px solid black;
+    border-radius: 55% 12%;
+    transform: rotate(9deg); }
+
+.kartman-button {
+  list-style-type: none; }
+  .kartman-button::before {
+    content: '';
+    top: -32%;
+    left: 168%;
+    position: absolute;
+    width: 5px;
+    height: 9px;
+    background: black;
+    border-radius: 50%;
+    z-index: 1; }
+  .kartman-button:nth-of-type(1)::before {
+    top: 40px; }
+  .kartman-button:nth-of-type(2)::before {
+    top: 68px;
+    left: 180%; }
+  .kartman-button:nth-of-type(3)::before {
+    top: 95px; }
 
 /*# sourceMappingURL=style.css.map */
