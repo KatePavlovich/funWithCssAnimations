@@ -89,10 +89,10 @@ body {
   width: 32px;
   height: 9px;
   background: transparent;
-  border-radius: 12px 6px 6px 0px;
-  border-top: 2px solid black;
+  border-radius: 0 0 0 29px;
+  border-bottom: 2px solid black;
   border-left: 2px solid black;
-  transform: rotate(5deg);
+  transform: rotate(-5deg);
   top: 85%;
   left: 44%;
   position: absolute; }
@@ -504,6 +504,10 @@ body {
     border-bottom: 2px solid black;
     transform: rotate(62deg); }
 
+.hand-animation {
+  /*@include hello(36px, 48px, 57%, 47%, 0deg, -30deg);
+  animation: wag 5s linear infinite;*/ }
+
 /*kartman*/
 .kartman .face {
   width: 260px;
@@ -693,7 +697,15 @@ body {
     transform: rotate(-33deg); }
 
 .kartman-mouth-position {
+  width: 32px;
+  height: 9px;
+  background: transparent;
+  border-radius: 12px 6px 6px 0px;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
   top: 85%;
+  left: 44%;
+  position: absolute;
   transform: rotate(13deg); }
 
 .kartman-hand1 {
@@ -791,5 +803,107 @@ body {
     left: 180%; }
   .kartman-button:nth-of-type(3)::before {
     top: 95px; }
+
+.rainy-wrapper {
+  display: flex; }
+
+.rainy {
+  -webkit-animation: rainy 5s ease-in-out  1s;
+  animation: rainy 5s ease-in-out  1s;
+  box-shadow: 70px -24px 0 3px #25262b, 28px -25px 0px 8px #25262b, 35px 14px #25262b, 67px 7px 0 -4px #25262b;
+  width: 150px;
+  height: 45px;
+  border-radius: 50%;
+  background: #25262b;
+  margin: -100px -137px;
+  position: relative; }
+  .rainy::before {
+    -webkit-animation: rainy-drops .7s infinite linear;
+    animation: rainy-drops .7s infinite linear;
+    content: '';
+    display: block;
+    width: 3px;
+    height: 5px;
+    border-radius: 50%;
+    background: transparent;
+    opacity: 0.5; }
+  .rainy::after {
+    -webkit-animation: rainy-drops .5s infinite linear .5s;
+    animation: rainy-drops .5s infinite linear .5s;
+    content: '';
+    width: 3px;
+    height: 5px;
+    border-radius: 50%;
+    background: transparent;
+    display: block;
+    left: 37%;
+    position: absolute; }
+
+.lightning {
+  top: 0;
+  left: 75px;
+  position: absolute;
+  width: 16px;
+  height: 54px;
+  background: transparent;
+  border-right: 4px solid #ffe01b;
+  border-bottom: 4px solid #ffe01b;
+  transform: rotate(-33deg) translateX(-30px);
+  animation: flash 3s linear infinite both;
+  box-shadow: 6px 6px 11px 0px white;
+  z-index: 1; }
+@keyframes flash {
+  0%, 60%, 75% {
+    transform: rotate(-9deg) translateX(68px);
+    opacity: 0; }
+  50%, 70%, 100% {
+    transform: rotate(-23deg) translateX(30px);
+    opacity: 1; } }
+  .lightning::after {
+    content: '';
+    top: 100%;
+    left: 0%;
+    position: absolute;
+    width: 4px;
+    height: 27px;
+    background: transparent;
+    border-left: 4px solid #ffe01b;
+    transform: rotate(-2deg);
+    box-shadow: -7px 4px 6px 0px white; }
+
+.puddle {
+  -webkit-animation: rainy-puddle 7s ease-in-out infinite 1s;
+  animation: rainy-puddle 7s ease-in-out infinite 1s;
+  background: #5161ac;
+  width: 120px;
+  height: 15px;
+  border-radius: 50%;
+  background: #5161ac;
+  top: 50%;
+  left: 83%;
+  position: absolute;
+  opacity: 0.5;
+  z-index: -2;
+  box-shadow: inset 0 0 1em #6cc06a; }
+
+@keyframes rainy {
+  0% {
+    transform: translateX(200px); }
+  100% {
+    transform: translateX(0px); } }
+@keyframes rainy-puddle {
+  10% {
+    bottom: 51%;
+    transform: scale(1.3); }
+  40% {
+    transform: scale(1.7); }
+  100% {
+    bottom: 53%;
+    transform: scale(2); } }
+@keyframes rainy-drops {
+  0%,51%, 98% {
+    box-shadow: #5161ac 30px 95px, #5161ac 40px 60px, #5161ac 50px 110px, #5161ac 55px 65px, #5161ac 110px 70px, #5161ac 90px 60px; }
+  50% {
+    box-shadow: #5161ac 50px 175px, #5161ac 55px 150px, #5161ac 70px 190px, #5161ac 80px 195px, #5161ac 110px 145px, #5161ac 90px 135px; } }
 
 /*# sourceMappingURL=style.css.map */
