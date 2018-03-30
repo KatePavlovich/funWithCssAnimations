@@ -97,6 +97,17 @@ body {
   left: 44%;
   position: absolute; }
 
+.mouth-animation {
+  background: black;
+  animation: blink2 3s linear infinite; }
+@keyframes blink2 {
+  0% {
+    height: 9px;
+    margin: 0;
+    background: black; }
+  70% {
+    height: 0;
+    margin: 2.25px auto; } }
 .pompon {
   width: 50px;
   height: 7px;
@@ -217,7 +228,7 @@ body {
     width: 36px;
     height: 48px;
     border-radius: 50%;
-    background: #e23940;
+    background: #6cc06a;
     top: 47%;
     left: -8%;
     position: absolute; }
@@ -228,7 +239,7 @@ body {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: #e23940;
+    background: #6cc06a;
     top: 57%;
     left: -8%;
     position: absolute; } }
@@ -240,7 +251,7 @@ body {
     width: 21px;
     height: 11px;
     border-radius: 50%;
-    background: #e23940;
+    background: #6cc06a;
     top: 50%;
     left: 57%;
     position: absolute; }
@@ -251,7 +262,7 @@ body {
     width: 11px;
     height: 11px;
     border-radius: 50%;
-    background: #e23940;
+    background: #6cc06a;
     top: 5%;
     left: 57%;
     position: absolute; } }
@@ -289,6 +300,34 @@ body {
 
 .footright {
   left: 45%; }
+
+@keyframes wordsAnimation {
+  0%, 35% {
+    opacity: 0; }
+  50% {
+    opacity: 1; } }
+.plate {
+  width: 130px;
+  height: 80px;
+  border-radius: 50%;
+  background: white;
+  top: 11%;
+  left: 20%;
+  position: absolute;
+  font-size: 4em;
+  text-align: center;
+  animation: wordsAnimation 3s linear infinite;
+  border: 2px solid black; }
+  .plate:after {
+    content: '';
+    width: 18px;
+    height: 19px;
+    background: white;
+    top: 84%;
+    left: 34%;
+    position: absolute;
+    transform: rotate(-38deg);
+    box-shadow: -3px 3px 0 -1px black; }
 
 /*kyle*/
 .kyle .coat {
@@ -504,27 +543,45 @@ body {
     border-bottom: 2px solid black;
     transform: rotate(62deg); }
 
+@keyframes rotatio {
+  0% {
+    transform: scale(0.3); }
+  100% {
+    transform: scale(1); } }
+@keyframes legs-movement {
+  0%, 100% {
+    transform: rotate(2deg); }
+  50% {
+    transform: rotate(0); } }
+@keyframes legs-movement1 {
+  0%, 100% {
+    transform: rotate(-2deg); }
+  50% {
+    transform: rotate(0); } }
 .hand-animation {
   /*@include hello(36px, 48px, 57%, 47%, 0deg, -30deg);
   animation: wag 5s linear infinite;*/ }
 
 /*kartman*/
-.kartman .face {
-  width: 260px;
-  height: 212px;
-  top: 6%;
-  left: 3%; }
-.kartman .eyes {
-  top: 37%; }
-.kartman .coat {
-  width: 317px;
-  background: #e23940;
-  border-radius: 50% 50% 34% 22%;
-  height: 162px; }
-  .kartman .coat:before {
-    display: none; }
-  .kartman .coat:after {
-    display: none; }
+.kartman {
+  animation: rotatio 15s linear;
+  transform: scale(1); }
+  .kartman .face {
+    width: 260px;
+    height: 212px;
+    top: 6%;
+    left: 3%; }
+  .kartman .eyes {
+    top: 37%; }
+  .kartman .coat {
+    width: 317px;
+    background: #e23940;
+    border-radius: 50% 50% 34% 22%;
+    height: 162px; }
+    .kartman .coat:before {
+      display: none; }
+    .kartman .coat:after {
+      display: none; }
 
 .kartman-body {
   top: -15%;
@@ -544,7 +601,7 @@ body {
   position: absolute;
   z-index: -1; }
 
-.kartman-footleft {
+.kartman-footleft, .kartman-footright {
   width: 150px;
   height: 9px;
   border-radius: 50%;
@@ -552,10 +609,12 @@ body {
   border-radius: 50% 50% 0 0/100% 100% 0 0;
   top: -6px;
   left: -6%;
-  position: absolute; }
+  position: absolute;
+  animation: legs-movement 1s linear infinite; }
 
 .kartman-footright {
-  left: 45%; }
+  left: 45%;
+  animation: legs-movement1 1s linear infinite 0.5s; }
 
 .kartman-hat {
   width: 256px;
@@ -805,8 +864,16 @@ body {
     top: 95px; }
 
 .rainy-wrapper {
-  display: flex; }
+  display: flex;
+  position: relative; }
 
+@keyframes lightningAnimation {
+  0%, 60%, 75% {
+    transform: rotate(-9deg) translateX(68px);
+    opacity: 0; }
+  50%, 70%, 100% {
+    transform: rotate(-23deg) translateX(30px);
+    opacity: 1; } }
 .rainy {
   -webkit-animation: rainy 5s ease-in-out  1s;
   animation: rainy 5s ease-in-out  1s;
@@ -849,16 +916,9 @@ body {
   border-right: 4px solid #ffe01b;
   border-bottom: 4px solid #ffe01b;
   transform: rotate(-33deg) translateX(-30px);
-  animation: flash 3s linear infinite both;
+  animation: lightningAnimation 3s linear infinite both;
   box-shadow: 6px 6px 11px 0px white;
   z-index: 1; }
-@keyframes flash {
-  0%, 60%, 75% {
-    transform: rotate(-9deg) translateX(68px);
-    opacity: 0; }
-  50%, 70%, 100% {
-    transform: rotate(-23deg) translateX(30px);
-    opacity: 1; } }
   .lightning::after {
     content: '';
     top: 100%;
@@ -879,8 +939,8 @@ body {
   height: 15px;
   border-radius: 50%;
   background: #5161ac;
-  top: 50%;
-  left: 83%;
+  top: 88%;
+  left: -79px;
   position: absolute;
   opacity: 0.5;
   z-index: -2;
@@ -905,5 +965,14 @@ body {
     box-shadow: #5161ac 30px 95px, #5161ac 40px 60px, #5161ac 50px 110px, #5161ac 55px 65px, #5161ac 110px 70px, #5161ac 90px 60px; }
   50% {
     box-shadow: #5161ac 50px 175px, #5161ac 55px 150px, #5161ac 70px 190px, #5161ac 80px 195px, #5161ac 110px 145px, #5161ac 90px 135px; } }
+/*desktop: 1024px*/
+@media screen and (max-width: 1024px) {
+  body {
+    margin-top: 17%; }
+
+  .plate {
+    top: 8%;
+    left: 18%;
+    position: absolute; } }
 
 /*# sourceMappingURL=style.css.map */
